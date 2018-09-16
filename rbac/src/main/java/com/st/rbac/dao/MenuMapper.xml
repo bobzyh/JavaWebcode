@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.st.rbac.dao.MenuMapper">
+
+	<resultMap type="com.st.rbac.pojo.Menu" id="menuMap">
+		<id column="mid" property="mid"></id>
+		<result column="manme" property="manme" />
+		<result column="murl" property="murl" />
+		<result column="pmid" property="pmid" />
+		<collection property="menus" ofType="com.st.rbac.pojo.Menu2"><!-- column="mid" select="selectByPmid" --> 
+			<id column="cmid" property="mid"></id>
+		</collection>
+	</resultMap>
+	
+	<select id="selectByPmid" resultType="com.st.rbac.pojo.Menu">
+		select * from menu where pmid = #{mid}
+	</select>
+	
+	<select id="selectByRoleid" resultType="com.st.rbac.pojo.Menu">
+		select *
+		from menu as p
+		INNER JOIN menurole on p.mid = menurole.mid
+		where menurole.roleid = #{roleid}
+	</select>
+</mapper>

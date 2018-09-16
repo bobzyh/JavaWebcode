@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.st.rbac.dao.ProductMapper">
+
+	<resultMap type="com.st.rbac.pojo.Product" id="productMap">
+		<id column="pid" property="pid"/>
+		<result column="pname" property="pname"/>
+		<result column="ptype" property="ptype"/>
+		<collection property="picList" ofType="com.st.rbac.pojo.Pic"
+			column="pid" select="selectPicByPid">
+		</collection>
+	</resultMap>
+	
+	<select id="selectPicByPid" resultType="com.st.rbac.pojo.Pic">
+		select * from pic where pid = #{pid}
+	</select>
+	
+	<select id="select" resultMap="productMap">
+		select * from product
+	</select>
+	
+	<!-- 取到插入数据的主键  pid -->
+	<!-- useGeneratedKeys="true" keyProperty="pid
+		在插入数据表时, 将自动生成的主键, 作为参数对象的pid属性
+	 -->
+	<insert id="insert" parameterType="com.st.rbac.pojo.Product"
+		useGeneratedKeys="true" keyProperty="pid">
+		insert into product (pname, ptype) values(#{pname}, #{ptype})
+	</insert>
+	
+	<select id="selectById" resultMap="productMap">
+		select * from product where pid = #{pid}
+	</select>
+</mapper>

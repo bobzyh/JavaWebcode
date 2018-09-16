@@ -1,0 +1,62 @@
+
+/* 头部背景 */
+.layui-layout-admin .layui-header{
+	background-color: #21618C; 
+}
+/* 项目名称字体颜色 */
+.layui-layout-admin .layui-logo{
+	color : #FFFFFF;
+	font-size : 20px;
+	font-weight: bold;
+}
+/* 侧边栏背景 */
+.layui-side{
+	background-color: #1F618D; 
+}
+/* 侧边导航背景 与侧边栏背景一致辞 */
+.layui-nav{
+	background-color: #1F618D;
+}
+.layui-nav-tree .layui-nav-item{
+	line-height: 35px;
+}
+.layui-nav-tree .layui-nav-item>a{
+	border-bottom: 1px solid #154360;
+	border-left: 1px solid #154360;
+	border-top : 1px solid #5499C7;
+	border-right : 1px solid #5499C7;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 20px 0px;
+	margin-left:5px;
+}
+/* 导航菜单 鼠标移上背景 */
+.layui-nav-tree .layui-nav-item a:hover{
+	background-color: #1A5276;
+}
+/* 导航菜单鼠标移上时前部颜色块 */
+.layui-nav-tree .layui-nav-bar{
+	background-color: #BB8FCE;
+}
+.layui-nav-tree .layui-nav-child{
+	line-height: 30px;
+}
+.layui-nav-itemed>.layui-nav-child{
+	    background-color: rgba(0,0,0,.2)!important;
+}
+.layui-nav-tree .layui-nav-child a{
+	line-height: 30px;
+	height: 30px;
+}
+/* 二级菜单选中背景 */
+.layui-nav-tree .layui-nav-child dd.layui-this>a{
+	background-color: #2980B9;
+}
+/* 主体区域背景 */
+.layui-layout-admin .layui-body{
+	background-color: #F0F0F0;
+}
+/* 底部固定区域 */
+.layui-layout-admin .layui-footer{
+	background-color: #AED6F1;
+}
